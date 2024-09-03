@@ -128,6 +128,11 @@ void inserirElemento()
 	cin >> novo->valor;
 	novo->prox = NULL;
 
+	if (posicaoElemento(novo->valor) != NULL) {
+		cout << "O elemento ja esta na lista.\n";
+		return;
+	}
+
 	if (primeiro == NULL)
 	{
 		primeiro = novo;
@@ -150,7 +155,25 @@ void excluirElemento()
 
 void buscarElemento()
 {
-	
+	if (primeiro == NULL) {
+		cout << "Lista vazia \n";
+		return;
+	}
+	else {
+		int elementoEscolhido;
+		cout << "Digite o elemento que deseja buscar: ";
+		cin >> elementoEscolhido;
+
+		NO* aux = primeiro;
+		while (aux != NULL) {
+			if (aux->valor == elementoEscolhido) {
+				cout << "O elemento esta na lista.\n";
+				return;
+			}
+			aux = aux->prox;
+		}
+		cout << "O elemento nao esta na lista.\n";
+	}	
 }
 
 
