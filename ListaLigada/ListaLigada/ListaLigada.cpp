@@ -162,7 +162,6 @@ void excluirElemento()
 		NO* aux = primeiro;
 		NO* anterior = NULL;
 		while (aux != NULL) {
-			NO* paraExcluir = aux;
 			if (aux->valor == elementoEscolhido) {
 				if (anterior == NULL) {
 					primeiro = aux->prox;
@@ -170,7 +169,7 @@ void excluirElemento()
 				else {
 					anterior->prox = aux->prox;
 				}
-				free(paraExcluir);
+				free(aux);
 				cout << "Elemento excluido com sucesso\n";
 				return;
 			}
